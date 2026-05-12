@@ -10,7 +10,6 @@ const { name } = require('ejs')
 //conexão com o banco de dados 
 db.connect()
 
-
 // definindo template engine
 
 app.set('view engine', 'ejs')
@@ -28,8 +27,6 @@ app.use(express.urlencoded({extended:true}))
 //DEFININDO AS ROTAS
 
 app.use('/', routes)
-
-
 
 // error 404 Middleware
 

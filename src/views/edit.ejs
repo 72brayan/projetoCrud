@@ -15,7 +15,7 @@
         <p><%= message %></p>
     <% } %>
 
-    <form action="/register/add" method="POST">
+    <form action="/edit/<%= user._id %>" method="POST">
 
         <div>
             <label for="name">Nome</label>
@@ -25,6 +25,7 @@
                 name="name" 
                 placeholder="Digite o seu nome"
                 required
+                value="<%= user.name %>"
             >
         </div>
 
@@ -36,6 +37,7 @@
                 name="age" 
                 placeholder="Digite a sua idade"
                 required
+                value="<%= user.age %>"
             >
         </div>
 
@@ -47,22 +49,14 @@
                 name="email" 
                 placeholder="Digite o seu e-mail"
                 required
+                value="<%= user.email %>"
             >
         </div>
 
-        <div>
-            <label for="password">Senha</label>
-            <input 
-                type="password" 
-                id="password"
-                name="password" 
-                placeholder="Digite a sua senha"
-                required
-            >
-        </div>
+      
 
         <button type="submit">
-            Cadastrar
+            Editar
         </button>
 
     </form>
