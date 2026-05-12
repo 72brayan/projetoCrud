@@ -2,7 +2,14 @@ const express = require('express')
 const path = require('path')
 const { title } = require('process')
 const app = express()
+const db = require('./database')
 const port = process.env.PORT || 3000
+const routes = require('./routes')
+const { name } = require('ejs')
+
+//conexão com o banco de dados 
+db.connect()
+
 
 // definindo template engine
 
@@ -18,13 +25,11 @@ app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.urlencoded({extended:true}))
 
-//rotas
+//DEFININDO AS ROTAS
 
-app.get('/', (req, res)=>{
-    res.render('index',{
-        title: 'teste'
-    } )
-})
+app.use('/', routes)
+
+
 
 // error 404 Middleware
 
